@@ -3,7 +3,7 @@ name: Deploy HTML to cPanel
 on:
   push:
     branches:
-      - main  # Runs the workflow when pushing to 'main' branch
+      - main
 
 jobs:
   deploy:
@@ -16,9 +16,12 @@ jobs:
       - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.CPANEL_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Test SSH Connection
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} "echo 'SSH Connection Successful'"
 
       - name: Deploy HTML to cPanel
         run: |
