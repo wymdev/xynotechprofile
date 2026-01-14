@@ -1,0 +1,860 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="XynoTech IT Solutions - Innovative software development, cloud solutions, cybersecurity, and technical consulting.">
+    <meta name="author" content="XynoTech">
+    <title>XynoTech - IT Solutions & Technology</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        },
+                        dark: {
+                            900: '#030014',
+                            800: '#0a0a1a',
+                            700: '#12122a',
+                            600: '#1a1a3a',
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-inter bg-dark-900 text-white antialiased overflow-x-hidden">
+
+    <!-- Premium Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-dark-900">
+        <!-- Animated Background -->
+        <div class="preloader-bg"></div>
+
+        <!-- Center Content -->
+        <div class="relative z-10 text-center">
+            <!-- Animated Logo Text -->
+            <div class="logo-text-container mb-8">
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight">
+                    <span class="logo-letter" style="--i:0">X</span><span class="logo-letter"
+                        style="--i:1">Y</span><span class="logo-letter" style="--i:2">N</span><span class="logo-letter"
+                        style="--i:3">O</span><span class="logo-letter text-primary-400" style="--i:4">T</span><span
+                        class="logo-letter text-primary-400" style="--i:5">E</span><span
+                        class="logo-letter text-primary-400" style="--i:6">C</span><span
+                        class="logo-letter text-primary-400" style="--i:7">H</span>
+                </h1>
+            </div>
+
+            <!-- Glowing Line Loader -->
+            <div class="loader-line-container">
+                <div class="loader-line"></div>
+            </div>
+
+            <!-- Tagline -->
+            <p class="text-gray-500 text-sm mt-6 tracking-widest uppercase">Transforming Ideas Into Reality</p>
+        </div>
+
+        <!-- Corner Decorations -->
+        <div class="preloader-corner top-left"></div>
+        <div class="preloader-corner top-right"></div>
+        <div class="preloader-corner bottom-left"></div>
+        <div class="preloader-corner bottom-right"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="nav-glass flex items-center justify-between h-16 px-4 sm:px-6 rounded-2xl">
+                <!-- Animated Text Logo -->
+                <a href="#" class="flex items-center space-x-1 group">
+                    <span class="text-xl sm:text-2xl font-black tracking-tight">
+                        <span class="text-white group-hover:text-primary-400 transition-colors">XYNO</span><span
+                            class="text-primary-400">TECH</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="#home"
+                        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
+                    <a href="#about"
+                        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">About</a>
+                    <a href="#services"
+                        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Services</a>
+                    <a href="#process"
+                        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Process</a>
+                    <a href="#team"
+                        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Team</a>
+                    <a href="#contact" class="btn-glow ml-4 px-6 py-2.5 rounded-full text-sm font-semibold">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="lg:hidden p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-2 mx-4">
+            <div class="nav-glass rounded-2xl p-6 space-y-2">
+                <a href="#home"
+                    class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
+                <a href="#about"
+                    class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">About</a>
+                <a href="#services"
+                    class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Services</a>
+                <a href="#process"
+                    class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Process</a>
+                <a href="#team"
+                    class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Team</a>
+                <a href="#contact" class="btn-glow block text-center py-3 px-4 rounded-xl text-sm font-semibold mt-4">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <!-- Grid Lines -->
+            <div class="grid-lines"></div>
+
+            <!-- Gradient Orbs -->
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+
+            <!-- Floating Shapes -->
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <span
+                    class="badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8">
+                    <span class="badge-dot"></span>
+                    9+ Years of Excellence in IT Solutions
+                </span>
+            </div>
+
+            <h1 class="reveal text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-tight">
+                <span class="block text-white">Transforming Ideas Into</span>
+                <span class="block mt-2 text-gradient">Digital Reality</span>
+            </h1>
+
+            <p
+                class="reveal text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4">
+                We empower businesses with cutting-edge technology, innovative software development, and expert
+                technical consulting.
+            </p>
+
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
+                <a href="#services" class="btn-glow w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold">
+                    Explore Services
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#contact" class="btn-outline w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold">
+                    <i class="fas fa-message mr-2"></i>
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="reveal mt-12 sm:mt-16 lg:mt-20">
+                <div class="stats-grid max-w-4xl mx-auto">
+                    <div class="stat-card">
+                        <div class="stat-number counter" data-target="368">0</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number counter" data-target="50">0</div>
+                        <div class="stat-label">Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number counter" data-target="9">0</div>
+                        <div class="stat-label">Years</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number counter" data-target="24">0</div>
+                        <div class="stat-label">Team</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+            <a href="#about" class="flex flex-col items-center text-gray-500 hover:text-primary-400 transition-colors">
+                <span class="text-xs mb-2 tracking-wider">SCROLL</span>
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
+        <div class="section-bg-accent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <!-- Left Content -->
+                <div class="reveal-left order-2 lg:order-1">
+                    <span
+                        class="badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+                        <span class="badge-dot"></span>
+                        About XynoTech
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                        Expert IT Solutions for
+                        <span class="text-gradient">Modern Business</span>
+                    </h2>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
+                        XynoTech IT Solutions is a dynamic IT company specializing in innovative software development,
+                        cloud solutions, cybersecurity, and technical consulting. We empower businesses with
+                        cutting-edge technology to drive efficiency and growth.
+                    </p>
+
+                    <div class="space-y-4 sm:space-y-6 mb-8">
+                        <div class="feature-card flex items-start gap-4 p-4 rounded-2xl">
+                            <div class="feature-icon flex-shrink-0">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base sm:text-lg font-semibold mb-1">Professional Consultants</h4>
+                                <p class="text-gray-400 text-sm sm:text-base">Expert guidance ensuring efficiency and
+                                    growth for your business.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card flex items-start gap-4 p-4 rounded-2xl">
+                            <div class="feature-icon flex-shrink-0">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base sm:text-lg font-semibold mb-1">Digital IT Solutions</h4>
+                                <p class="text-gray-400 text-sm sm:text-base">Cutting-edge solutions to streamline
+                                    operations and drive innovation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact"
+                        class="btn-glow inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base">
+                        Get Free Consultation
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Right - 3D Card -->
+                <div class="reveal-right order-1 lg:order-2">
+                    <div class="about-visual">
+                        <div class="about-card">
+                            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                                <div class="about-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>Clean Code</span>
+                                </div>
+                                <div class="about-item">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Fast Delivery</span>
+                                </div>
+                                <div class="about-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Secure</span>
+                                </div>
+                                <div class="about-item">
+                                    <i class="fas fa-headset"></i>
+                                    <span>24/7 Support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 sm:py-20 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <span
+                    class="reveal badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+                    <span class="badge-dot"></span>
+                    Our Services
+                </span>
+                <h2 class="reveal text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                    Comprehensive IT <span class="text-gradient">Solutions</span>
+                </h2>
+                <p class="reveal text-gray-400 text-base sm:text-lg px-4">
+                    We offer a wide range of IT services to help your business thrive in the digital age.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Service Card 1 -->
+                <div class="reveal service-card group">
+                    <div class="service-icon service-icon-1">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">IT Consultancy</h3>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">Expert IT consultancy for
+                        optimized technology solutions.</p>
+                    <a href="#contact" class="service-link">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="reveal service-card group" style="animation-delay: 0.1s">
+                    <div class="service-icon service-icon-2">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">App Development</h3>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">Innovative mobile applications
+                        tailored to your needs.</p>
+                    <a href="#contact" class="service-link">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="reveal service-card group" style="animation-delay: 0.2s">
+                    <div class="service-icon service-icon-3">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Data Analysis</h3>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">Power BI development and data
+                        analytics solutions.</p>
+                    <a href="#contact" class="service-link">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="reveal service-card group" style="animation-delay: 0.3s">
+                    <div class="service-icon service-icon-4">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">UX/UI Strategy</h3>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">Seamless and engaging user
+                        experience design.</p>
+                    <a href="#contact" class="service-link">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
+        <div class="section-bg-accent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <span
+                    class="reveal badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+                    <span class="badge-dot"></span>
+                    Our Process
+                </span>
+                <h2 class="reveal text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                    How We <span class="text-gradient">Work</span>
+                </h2>
+                <p class="reveal text-gray-400 text-base sm:text-lg px-4">
+                    Our streamlined process ensures efficient delivery and exceptional results.
+                </p>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="reveal process-step">
+                    <div class="process-icon process-icon-1">
+                        <i class="fas fa-comments"></i>
+                        <span class="process-number">01</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Collect Requirements</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">We collaborate to understand your needs and goals.</p>
+                </div>
+
+                <!-- Connector -->
+                <div class="process-connector hidden lg:block"></div>
+
+                <!-- Step 2 -->
+                <div class="reveal process-step" style="animation-delay: 0.1s">
+                    <div class="process-icon process-icon-2">
+                        <i class="fas fa-project-diagram"></i>
+                        <span class="process-number">02</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Analyze & Plan</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">We analyze and create a detailed roadmap.</p>
+                </div>
+
+                <!-- Connector -->
+                <div class="process-connector hidden lg:block"></div>
+
+                <!-- Step 3 -->
+                <div class="reveal process-step" style="animation-delay: 0.2s">
+                    <div class="process-icon process-icon-3">
+                        <i class="fas fa-code"></i>
+                        <span class="process-number">03</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Develop Solution</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">Building with latest technologies and best practices.
+                    </p>
+                </div>
+
+                <!-- Connector -->
+                <div class="process-connector hidden lg:block"></div>
+
+                <!-- Step 4 -->
+                <div class="reveal process-step" style="animation-delay: 0.3s">
+                    <div class="process-icon process-icon-4">
+                        <i class="fas fa-rocket"></i>
+                        <span class="process-number">04</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Deliver & Support</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">Seamless deployment with ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-16 sm:py-20 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <span
+                    class="reveal badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+                    <span class="badge-dot"></span>
+                    Our Team
+                </span>
+                <h2 class="reveal text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                    Meet The <span class="text-gradient">Experts</span>
+                </h2>
+                <p class="reveal text-gray-400 text-base sm:text-lg px-4">
+                    Our talented team of professionals dedicated to delivering excellence.
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Team Member 1 -->
+                <div class="reveal team-card">
+                    <div class="team-image">
+                        <img src="assets/img/team/wymprofile.jpg" alt="Wai Yan Maing">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="https://waiyanmaing.vercel.app" target="_blank"><i
+                                        class="fas fa-globe"></i></a>
+                                <a href="https://www.facebook.com/waiyanmaingdev" target="_blank"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/in/waiyanmaing-dev/" target="_blank"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/wymdev" target="_blank"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Wai Yan Maing</h3>
+                        <p>Founder</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="reveal team-card" style="animation-delay: 0.1s">
+                    <div class="team-image">
+                        <img src="assets/img/team/zayarlynn.jpg" alt="Zayar Lynn">
+                        <div class="team-overlay team-overlay-2">
+                            <div class="team-social">
+                                <a href="https://www.facebook.com/profile.php?id=100037102381937" target="_blank"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/in/zayar-lynn-067720248/" target="_blank"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/Zayar-lynn" target="_blank"><i
+                                        class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Zayar Lynn</h3>
+                        <p>FullStack Dev</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="reveal team-card" style="animation-delay: 0.2s">
+                    <div class="team-image">
+                        <img src="assets/img/team/ZayLin.jpg" alt="Zay Lin">
+                        <div class="team-overlay team-overlay-3">
+                            <div class="team-social">
+                                <a href="https://www.facebook.com/profile.php?id=100008503519319" target="_blank"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/in/zay-lin-htet/" target="_blank"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/ZayLin799" target="_blank"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Zay Lin</h3>
+                        <p>FullStack Dev</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="reveal team-card" style="animation-delay: 0.3s">
+                    <div class="team-image">
+                        <img src="assets/img/team/ppt.jpg" alt="Paing Pyae Thu">
+                        <div class="team-overlay team-overlay-4">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/paingpyaethu" target="_blank"><i
+                                        class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Paing Pyae Thu</h3>
+                        <p>Mobile Dev</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
+        <div class="section-bg-accent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+                <!-- Left Content -->
+                <div class="reveal-left">
+                    <span
+                        class="badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+                        <span class="badge-dot"></span>
+                        Get In Touch
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                        Let's Build Something <span class="text-gradient">Amazing</span>
+                    </h2>
+                    <p class="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10">
+                        Ready to transform your ideas into reality? Get in touch with us for a free consultation.
+                    </p>
+
+                    <!-- Contact Info -->
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon contact-icon-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-xs sm:text-sm">Email Us</p>
+                                <a href="mailto:support@xynotechmm.com"
+                                    class="text-white font-medium text-sm sm:text-base hover:text-primary-400 transition-colors">support@xynotechmm.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-icon contact-icon-2">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-xs sm:text-sm">Call Us</p>
+                                <a href="tel:+959454375116"
+                                    class="text-white font-medium text-sm sm:text-base hover:text-primary-400 transition-colors">+95
+                                    9 4543 7511 6</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-icon contact-icon-3">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-xs sm:text-sm">Business Hours</p>
+                                <p class="text-white font-medium text-sm sm:text-base">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-8 sm:mt-10">
+                        <p class="text-gray-500 text-xs sm:text-sm mb-4">Follow Us</p>
+                        <div class="flex gap-3">
+                            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://linkedin.com/company/xynotech-mm" target="_blank" class="social-btn"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right - Contact Form -->
+                <div class="reveal-right">
+                    <div class="contact-form-card">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form id="contact-form" class="space-y-4 sm:space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
+                                <div>
+                                    <label class="block text-gray-400 text-xs sm:text-sm mb-2">Full Name</label>
+                                    <input type="text" name="name" required class="form-input" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-400 text-xs sm:text-sm mb-2">Email</label>
+                                    <input type="email" name="email" required class="form-input"
+                                        placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-xs sm:text-sm mb-2">Subject</label>
+                                <input type="text" name="subject" required class="form-input"
+                                    placeholder="How can we help?">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-xs sm:text-sm mb-2">Message</label>
+                                <textarea name="message" rows="4" required class="form-input resize-none"
+                                    placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            <button type="submit"
+                                class="btn-glow w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base">
+                                Send Message
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 sm:py-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-lg sm:text-xl font-black">
+                        <span class="text-white">XYNO</span><span class="text-primary-400">TECH</span>
+                    </span>
+                    <span class="text-gray-500 text-xs sm:text-sm">© 2024 All rights reserved.</span>
+                </div>
+                <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Preloader - Fast but elegant
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    document.body.classList.remove('overflow-hidden');
+                }, 500);
+            }, 1200);
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+
+            if (currentScroll > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden');
+
+            const icon = document.getElementById('menu-icon');
+            if (menuOpen) {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen = false;
+                document.getElementById('menu-icon').setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target + '+';
+                        }
+                    };
+
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const navLinks = document.querySelectorAll(`.nav-link[href="#${sectionId}"]`);
+
+                navLinks.forEach(link => {
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
