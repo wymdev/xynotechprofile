@@ -9,8 +9,9 @@
     <meta name="author" content="XynoTech">
     <title>XynoTech - IT Solutions & Technology</title>
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <!-- Favicon - X Logo -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='%23030014'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold' font-size='20' fill='url(%23g)'%3EX%3C/text%3E%3C/svg%3E">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -99,9 +100,9 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#030014]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="nav-glass flex items-center justify-between h-16 px-4 sm:px-6 rounded-2xl">
+            <div class="flex items-center justify-between h-20">
                 <!-- Animated Text Logo -->
                 <a href="#" class="flex items-center space-x-1 group">
                     <span class="text-xl sm:text-2xl font-black tracking-tight">
@@ -139,8 +140,8 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden mt-2 mx-4">
-            <div class="nav-glass rounded-2xl p-6 space-y-2">
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#030014] border-t border-white/10">
+            <div class="p-6 space-y-2">
                 <a href="#home"
                     class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
                 <a href="#about"
@@ -159,7 +160,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24">
         <!-- Animated Background -->
         <div class="hero-bg">
             <!-- Grid Lines -->
@@ -229,21 +230,22 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
-            <a href="#about" class="flex flex-col items-center text-gray-500 hover:text-primary-400 transition-colors">
-                <span class="text-xs mb-2 tracking-wider">SCROLL</span>
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
-                </div>
-            </a>
+            <!-- Scroll Indicator -->
+            <div class="mt-12 flex justify-center">
+                <a href="#about"
+                    class="flex flex-col items-center text-gray-400 hover:text-primary-400 transition-colors group">
+                    <span class="text-[10px] mb-2 tracking-widest uppercase">Scroll</span>
+                    <div class="w-6 h-10 border-2 border-current rounded-full flex justify-center p-1">
+                        <div class="w-1 h-2 bg-current rounded-full animate-scroll-wheel"></div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
+    <section id="about" class="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         <div class="section-bg-accent"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -325,7 +327,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 sm:py-20 lg:py-32 relative">
+    <section id="services" class="py-12 sm:py-16 lg:py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -400,7 +402,7 @@
     </section>
 
     <!-- Process Section -->
-    <section id="process" class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
+    <section id="process" class="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         <div class="section-bg-accent"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -475,7 +477,7 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="py-16 sm:py-20 lg:py-32 relative">
+    <section id="team" class="py-12 sm:py-16 lg:py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -580,7 +582,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
+    <section id="contact" class="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         <div class="section-bg-accent"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
