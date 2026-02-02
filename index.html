@@ -5,8 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="XynoTech IT Solutions - Innovative software development, cloud solutions, cybersecurity, and technical consulting.">
+        content="XynoTech IT Solutions - Innovative software development, cloud solutions, cybersecurity, and technical consulting. 9+ years of excellence in delivering cutting-edge technology solutions.">
+    <meta name="keywords"
+        content="IT Solutions, Software Development, Web Development, Mobile Apps, Cloud Solutions, Cybersecurity, Technical Consulting, AI ML, Data Analytics, XynoTech">
     <meta name="author" content="XynoTech">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://xynotechmm.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xynotechmm.com">
+    <meta property="og:title" content="XynoTech - IT Solutions & Technology">
+    <meta property="og:description"
+        content="Innovative software development, cloud solutions, cybersecurity, and technical consulting. 9+ years of excellence.">
+    <meta property="og:image" content="https://xynotechmm.com/assets/img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://xynotechmm.com">
+    <meta property="twitter:title" content="XynoTech - IT Solutions & Technology">
+    <meta property="twitter:description"
+        content="Innovative software development, cloud solutions, cybersecurity, and technical consulting.">
+    <meta property="twitter:image" content="https://xynotechmm.com/assets/img/og-image.jpg">
+
     <title>XynoTech - IT Solutions & Technology</title>
 
     <!-- Favicon - X Logo -->
@@ -64,6 +85,9 @@
 
 <body class="font-inter bg-dark-900 text-white antialiased overflow-x-hidden">
 
+    <!-- Cursor Trail Canvas -->
+    <canvas id="cursor-canvas" class="cursor-canvas"></canvas>
+
     <!-- Premium Preloader -->
     <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-dark-900">
         <!-- Animated Background -->
@@ -119,8 +143,8 @@
                         class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">About</a>
                     <a href="#services"
                         class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Services</a>
-                    <a href="#process"
-                        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Process</a>
+                    <a href="#portfolio"
+                        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Portfolio</a>
                     <a href="#team"
                         class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all">Team</a>
                     <a href="#contact" class="btn-glow ml-4 px-6 py-2.5 rounded-full text-sm font-semibold">
@@ -148,8 +172,8 @@
                     class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">About</a>
                 <a href="#services"
                     class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Services</a>
-                <a href="#process"
-                    class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Process</a>
+                <a href="#portfolio"
+                    class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Portfolio</a>
                 <a href="#team"
                     class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Team</a>
                 <a href="#contact" class="btn-glow block text-center py-3 px-4 rounded-xl text-sm font-semibold mt-4">
@@ -187,13 +211,14 @@
                 </span>
             </div>
 
-            <h1 class="reveal text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-tight">
+            <h1
+                class="reveal text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-10 leading-normal pb-4">
                 <span class="block text-white">Transforming Ideas Into</span>
-                <span class="block mt-2 text-gradient">Digital Reality</span>
+                <span class="block mt-2 text-gradient" style="padding-bottom: 0.15em;">Digital Reality</span>
             </h1>
 
             <p
-                class="reveal text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4">
+                class="reveal text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mt-4 mb-8 sm:mb-10 leading-relaxed px-4">
                 We empower businesses with cutting-edge technology, innovative software development, and expert
                 technical consulting.
             </p>
@@ -322,6 +347,52 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+        <div class="section-bg-accent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <span
+                    class="reveal badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+                    <span class="badge-dot"></span>
+                    Our Expertise
+                </span>
+                <h2 class="reveal text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                    Technical <span class="text-gradient">Skills</span>
+                </h2>
+                <p class="reveal text-gray-400 text-base sm:text-lg px-4">
+                    Our team's comprehensive skill set across modern technologies and frameworks.
+                </p>
+            </div>
+
+            <!-- Skills Category Tabs -->
+            <div class="reveal flex flex-wrap justify-center gap-3 mb-10 sm:mb-12">
+                <button class="skills-tab-btn active" data-category="frontend">
+                    <i class="fas fa-laptop-code mr-2"></i>Frontend
+                </button>
+                <button class="skills-tab-btn" data-category="backend">
+                    <i class="fas fa-server mr-2"></i>Backend
+                </button>
+                <button class="skills-tab-btn" data-category="mobile">
+                    <i class="fas fa-mobile-alt mr-2"></i>Mobile
+                </button>
+                <button class="skills-tab-btn" data-category="tools">
+                    <i class="fas fa-tools mr-2"></i>Tools & DevOps
+                </button>
+                <button class="skills-tab-btn" data-category="other">
+                    <i class="fas fa-star mr-2"></i>Other Skills
+                </button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div id="skills-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skills will be dynamically inserted here -->
             </div>
         </div>
     </section>
@@ -502,8 +573,7 @@
                         <img src="assets/img/team/wymprofile.jpg" alt="Wai Yan Maing">
                         <div class="team-overlay">
                             <div class="team-social">
-                                <a href="https://waiyanmaing.vercel.app" target="_blank"><i
-                                        class="fas fa-globe"></i></a>
+                                <a href="https://waiyanmaing.space" target="_blank"><i class="fas fa-globe"></i></a>
                                 <a href="https://www.facebook.com/waiyanmaingdev" target="_blank"><i
                                         class="fab fa-facebook-f"></i></a>
                                 <a href="https://www.linkedin.com/in/waiyanmaing-dev/" target="_blank"><i
@@ -580,6 +650,116 @@
             </div>
         </div>
     </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-12 sm:py-16 lg:py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <span
+                    class="reveal badge inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
+                    <span class="badge-dot"></span>
+                    Our Portfolio
+                </span>
+                <h2 class="reveal text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                    Featured <span class="text-gradient">Projects</span>
+                </h2>
+                <p class="reveal text-gray-400 text-base sm:text-lg px-4">
+                    Explore our successful projects across web development, mobile apps, AI/ML, and data analytics.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="reveal flex flex-wrap justify-center gap-3 mb-10 sm:mb-12">
+                <button class="portfolio-filter-btn active" data-filter="all">
+                    <i class="fas fa-th mr-2"></i>All Projects
+                </button>
+                <button class="portfolio-filter-btn" data-filter="web">
+                    <i class="fas fa-globe mr-2"></i>Web Development
+                </button>
+                <button class="portfolio-filter-btn" data-filter="mobile">
+                    <i class="fas fa-mobile-alt mr-2"></i>Mobile Apps
+                </button>
+                <button class="portfolio-filter-btn" data-filter="ai">
+                    <i class="fas fa-brain mr-2"></i>AI & ML
+                </button>
+                <button class="portfolio-filter-btn" data-filter="data">
+                    <i class="fas fa-chart-line mr-2"></i>Data Analytics
+                </button>
+                <button class="portfolio-filter-btn" data-filter="security">
+                    <i class="fas fa-shield-alt mr-2"></i>Cybersecurity
+                </button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div id="portfolio-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Projects will be dynamically inserted here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more-btn" class="btn-outline px-8 py-4 rounded-full text-base font-semibold hidden">
+                    Load More Projects
+                    <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div id="portfolio-modal" class="portfolio-modal">
+        <div class="portfolio-modal-overlay"></div>
+        <div class="portfolio-modal-content">
+            <button class="portfolio-modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="portfolio-modal-body">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Left - Image -->
+                    <div class="portfolio-modal-image-container">
+                        <img id="modal-image" src="" alt="" class="portfolio-modal-image">
+                    </div>
+
+                    <!-- Right - Details -->
+                    <div class="portfolio-modal-details">
+                        <span id="modal-category" class="modal-category-badge"></span>
+                        <h2 id="modal-title" class="text-2xl sm:text-3xl font-bold mb-4 mt-3"></h2>
+
+                        <div class="flex flex-wrap gap-4 mb-6 text-sm text-gray-400">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-calendar"></i>
+                                <span id="modal-year"></span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-user"></i>
+                                <span id="modal-client"></span>
+                            </div>
+                        </div>
+
+                        <p id="modal-description" class="text-gray-400 text-base leading-relaxed mb-6"></p>
+
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold mb-3">Technologies Used</h3>
+                            <div id="modal-tags" class="flex flex-wrap gap-2">
+                                <!-- Tags will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <a id="modal-demo" href="#" target="_blank"
+                                class="btn-glow px-6 py-3 rounded-full text-sm font-semibold">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a id="modal-github" href="#" target="_blank"
+                                class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">
+                                <i class="fab fa-github mr-2"></i>View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
@@ -711,6 +891,10 @@
     <button id="back-to-top" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Data Scripts (must load before main script) -->
+    <script src="portfolio-data.js"></script>
+    <script src="skills-data.js"></script>
 
     <!-- Scripts -->
     <script>
@@ -856,7 +1040,360 @@
                 });
             });
         });
+
+        // ===== PORTFOLIO FUNCTIONALITY =====
+        let currentFilter = 'all';
+        let displayedProjects = 6; // Initially show 6 projects
+
+        // Render portfolio projects
+        function renderPortfolio(filter = 'all', limit = 6) {
+            const grid = document.getElementById('portfolio-grid');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+
+            // Filter projects
+            let filteredProjects = filter === 'all'
+                ? portfolioData
+                : portfolioData.filter(project => project.category === filter);
+
+            // Limit projects
+            const projectsToShow = filteredProjects.slice(0, limit);
+
+            // Clear grid
+            grid.innerHTML = '';
+
+            // Render projects
+            projectsToShow.forEach((project, index) => {
+                const card = document.createElement('div');
+                card.className = 'reveal portfolio-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.setAttribute('data-category', project.category);
+
+                card.innerHTML = `
+                    <div class="portfolio-card-image">
+                        <img src="${project.image}" alt="${project.title}" loading="lazy">
+                        <div class="portfolio-card-overlay">
+                            <button class="portfolio-view-btn" data-id="${project.id}">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <span class="portfolio-category">${getCategoryName(project.category)}</span>
+                        <h3 class="portfolio-title">${project.title}</h3>
+                        <p class="portfolio-description">${project.description}</p>
+                        <div class="portfolio-tags">
+                            ${project.tags.slice(0, 3).map(tag => `<span class="portfolio-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+
+                // Trigger reveal animation
+                setTimeout(() => {
+                    card.classList.add('revealed');
+                }, 100 + (index * 100));
+            });
+
+            // Show/hide load more button
+            if (filteredProjects.length > limit) {
+                loadMoreBtn.classList.remove('hidden');
+            } else {
+                loadMoreBtn.classList.add('hidden');
+            }
+
+            // Add click listeners to view buttons
+            document.querySelectorAll('.portfolio-view-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const projectId = parseInt(e.currentTarget.getAttribute('data-id'));
+                    openPortfolioModal(projectId);
+                });
+            });
+        }
+
+        // Get category display name
+        function getCategoryName(category) {
+            const categoryMap = {
+                'web': 'Web Development',
+                'mobile': 'Mobile App',
+                'ai': 'AI & ML',
+                'data': 'Data Analytics',
+                'security': 'Cybersecurity'
+            };
+            return categoryMap[category] || category;
+        }
+
+        // Portfolio filter functionality
+        document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active button
+                document.querySelectorAll('.portfolio-filter-btn').forEach(b => b.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+
+                // Get filter value
+                currentFilter = e.currentTarget.getAttribute('data-filter');
+                displayedProjects = 6; // Reset to initial count
+
+                // Render filtered projects
+                renderPortfolio(currentFilter, displayedProjects);
+            });
+        });
+
+        // Load more functionality
+        document.getElementById('load-more-btn').addEventListener('click', () => {
+            displayedProjects += 3;
+            renderPortfolio(currentFilter, displayedProjects);
+        });
+
+        // Open portfolio modal
+        function openPortfolioModal(projectId) {
+            const project = portfolioData.find(p => p.id === projectId);
+            if (!project) return;
+
+            const modal = document.getElementById('portfolio-modal');
+
+            // Populate modal content
+            document.getElementById('modal-image').src = project.image;
+            document.getElementById('modal-image').alt = project.title;
+            document.getElementById('modal-category').textContent = getCategoryName(project.category);
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-year').textContent = project.year;
+            document.getElementById('modal-client').textContent = project.client;
+            document.getElementById('modal-description').textContent = project.fullDescription;
+            document.getElementById('modal-demo').href = project.demoUrl;
+            document.getElementById('modal-github').href = project.githubUrl;
+
+            // Populate tags
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = project.tags.map(tag =>
+                `<span class="modal-tech-tag">${tag}</span>`
+            ).join('');
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close portfolio modal
+        function closePortfolioModal() {
+            const modal = document.getElementById('portfolio-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Modal close button
+        document.querySelector('.portfolio-modal-close').addEventListener('click', closePortfolioModal);
+
+        // Close modal on overlay click
+        document.querySelector('.portfolio-modal-overlay').addEventListener('click', closePortfolioModal);
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePortfolioModal();
+            }
+        });
+
+        // Initialize portfolio on page load
+        renderPortfolio();
+
+        // ===== SKILLS FUNCTIONALITY =====
+        let currentSkillCategory = 'frontend';
+
+        // Render skills
+        function renderSkills(category = 'frontend') {
+            const container = document.getElementById('skills-container');
+            const skills = skillsData[category];
+
+            if (!skills) return;
+
+            // Clear container
+            container.innerHTML = '';
+
+            // Render skills
+            skills.forEach((skill, index) => {
+                const skillCard = document.createElement('div');
+                skillCard.className = 'reveal skill-card';
+                skillCard.style.animationDelay = `${index * 0.1}s`;
+
+                skillCard.innerHTML = `
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="${skill.icon}"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4 class="skill-name">${skill.name}</h4>
+                            <span class="skill-percentage">${skill.proficiency}%</span>
+                        </div>
+                    </div>
+                    <div class="skill-progress-container">
+                        <div class="skill-progress-bar" data-progress="${skill.proficiency}"></div>
+                    </div>
+                `;
+
+                container.appendChild(skillCard);
+
+                // Trigger reveal animation
+                setTimeout(() => {
+                    skillCard.classList.add('revealed');
+
+                    // Animate progress bar
+                    const progressBar = skillCard.querySelector('.skill-progress-bar');
+                    setTimeout(() => {
+                        progressBar.style.width = skill.proficiency + '%';
+                    }, 200);
+                }, 100 + (index * 100));
+            });
+        }
+
+        // Skills tab functionality
+        document.querySelectorAll('.skills-tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active button
+                document.querySelectorAll('.skills-tab-btn').forEach(b => b.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+
+                // Get category
+                currentSkillCategory = e.currentTarget.getAttribute('data-category');
+
+                // Render skills
+                renderSkills(currentSkillCategory);
+            });
+        });
+
+        // Initialize skills on page load
+        renderSkills();
+
+        // ===== CURSOR TRAIL ANIMATION =====
+        (function initCursorAnimation() {
+            const canvas = document.getElementById('cursor-canvas');
+            if (!canvas) {
+                console.warn('Cursor canvas not found');
+                return;
+            }
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.warn('Canvas 2D context not available');
+                return;
+            }
+
+            // Particle storage
+            const particles = [];
+            let mouseX = 0;
+            let mouseY = 0;
+            let isMouseMoving = false;
+
+            // Set canvas size
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Particle class
+            class Particle {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = Math.random() * 4 + 2;
+                    this.speedX = (Math.random() - 0.5) * 2;
+                    this.speedY = (Math.random() - 0.5) * 2;
+                    this.life = 1;
+                    this.decay = Math.random() * 0.02 + 0.01;
+                    this.hue = Math.floor(Math.random() * 60) + 220; // Blue-purple
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.life -= this.decay;
+                    this.size *= 0.97;
+                }
+
+                draw() {
+                    if (this.life <= 0) return;
+
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${this.hue}, 100%, 60%, ${this.life})`;
+                    ctx.shadowColor = `hsla(${this.hue}, 100%, 50%, ${this.life})`;
+                    ctx.shadowBlur = 15;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+            }
+
+            // Track mouse movement
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                isMouseMoving = true;
+
+                // Create particles on move
+                for (let i = 0; i < 3; i++) {
+                    particles.push(new Particle(mouseX, mouseY));
+                }
+
+                // Limit particles for performance
+                while (particles.length > 150) {
+                    particles.shift();
+                }
+            });
+
+            // Animation loop
+            function animate() {
+                // Clear canvas completely (transparent)
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Update and draw particles
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.update();
+                    p.draw();
+
+                    // Remove dead particles
+                    if (p.life <= 0 || p.size < 0.5) {
+                        particles.splice(i, 1);
+                    }
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            // Start animation
+            animate();
+            console.log('Cursor trail animation initialized');
+        })();
     </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "XynoTech IT Solutions",
+        "url": "https://xynotechmm.com",
+        "logo": "https://xynotechmm.com/assets/img/logo.png",
+        "description": "Innovative software development, cloud solutions, cybersecurity, and technical consulting.",
+        "email": "support@xynotechmm.com",
+        "telephone": "+959454375116",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Myanmar"
+        },
+        "sameAs": [
+            "https://linkedin.com/company/xynotech-mm",
+            "https://github.com/wymdev"
+        ],
+        "foundingDate": "2015",
+        "numberOfEmployees": "1-10",
+        "areaServed": "Worldwide"
+    }
+    </script>
+
 </body>
 
 </html>
