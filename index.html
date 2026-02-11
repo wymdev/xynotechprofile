@@ -32,15 +32,15 @@
 
     <!-- Favicon - X Logo -->
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='%23030014'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold' font-size='20' fill='url(%23g)'%3EX%3C/text%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233B82F6'/%3E%3Cstop offset='100%25' stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='%230B1020'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='20' fill='url(%23g)'%3EX%3C/text%3E%3C/svg%3E">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts - Inter -->
+    <!-- Google Fonts - Space Grotesk + Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -55,26 +55,33 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
+                        'body': ['Manrope', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
                         primary: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            200: '#c7d2fe',
-                            300: '#a5b4fc',
-                            400: '#818cf8',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            800: '#3730a3',
-                            900: '#312e81',
+                            50: '#EFF6FF',
+                            100: '#DBEAFE',
+                            200: '#BFDBFE',
+                            300: '#93C5FD',
+                            400: '#60A5FA',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                            800: '#1E40AF',
+                            900: '#172554',
+                        },
+                        brand: {
+                            navy: '#0B1020',
+                            electric: '#3B82F6',
+                            soft: '#0F172A',
+                            slate: '#CBD5E1',
                         },
                         dark: {
-                            900: '#030014',
-                            800: '#0a0a1a',
-                            700: '#12122a',
-                            600: '#1a1a3a',
+                            900: '#0B1020',
+                            800: '#0F172A',
+                            700: '#111827',
+                            600: '#1F2937',
                         }
                     },
                 }
@@ -83,10 +90,12 @@
     </script>
 </head>
 
-<body class="font-inter bg-dark-900 text-white antialiased overflow-x-hidden">
+<body class="font-body bg-dark-900 text-brand-slate antialiased overflow-x-hidden">
 
     <!-- Cursor Trail Canvas -->
     <canvas id="cursor-canvas" class="cursor-canvas"></canvas>
+
+    <div class="page-content">
 
     <!-- Premium Preloader -->
     <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-dark-900">
@@ -124,14 +133,13 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#030014]">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Animated Text Logo -->
                 <a href="#" class="flex items-center space-x-1 group">
-                    <span class="text-xl sm:text-2xl font-black tracking-tight">
-                        <span class="text-white group-hover:text-primary-400 transition-colors">XYNO</span><span
-                            class="text-primary-400">TECH</span>
+                    <span class="display-font text-xl sm:text-2xl font-black tracking-tight brand-logo">
+                        <span class="brand-main">XYNO</span><span class="brand-accent">TECH</span>
                     </span>
                 </a>
 
@@ -164,7 +172,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-[#030014] border-t border-white/10">
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10">
             <div class="p-6 space-y-2">
                 <a href="#home"
                     class="block py-3 px-4 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
@@ -872,8 +880,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
                 <div class="flex items-center gap-3">
-                    <span class="text-lg sm:text-xl font-black">
-                        <span class="text-white">XYNO</span><span class="text-primary-400">TECH</span>
+                    <span class="display-font text-lg sm:text-xl font-black brand-logo">
+                        <span class="brand-main">XYNO</span><span class="brand-accent">TECH</span>
                     </span>
                     <span class="text-gray-500 text-xs sm:text-sm">© 2024 All rights reserved.</span>
                 </div>
@@ -1023,23 +1031,34 @@
 
         // Active nav link highlighting
         const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', () => {
+        const allNavLinks = document.querySelectorAll('.nav-link');
+
+        function updateActiveNav() {
             const scrollY = window.scrollY;
+            let activeSection = null;
+
             sections.forEach(section => {
                 const sectionHeight = section.offsetHeight;
                 const sectionTop = section.offsetTop - 100;
                 const sectionId = section.getAttribute('id');
-                const navLinks = document.querySelectorAll(`.nav-link[href="#${sectionId}"]`);
 
-                navLinks.forEach(link => {
-                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    activeSection = sectionId;
+                }
             });
-        });
+
+            if (!activeSection) {
+                activeSection = 'home';
+            }
+
+            allNavLinks.forEach(link => link.classList.remove('active'));
+            const activeLinks = document.querySelectorAll(`.nav-link[href="#${activeSection}"]`);
+            activeLinks.forEach(link => link.classList.add('active'));
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+        updateActiveNav();
 
         // ===== PORTFOLIO FUNCTIONALITY =====
         let currentFilter = 'all';
@@ -1279,93 +1298,112 @@
                 return;
             }
 
-            // Particle storage
-            const particles = [];
-            let mouseX = 0;
-            let mouseY = 0;
-            let isMouseMoving = false;
+            const rootStyles = getComputedStyle(document.documentElement);
+            const themeHexColors = ['--primary', '--primary-light', '--pink']
+                .map((name) => rootStyles.getPropertyValue(name).trim())
+                .filter(Boolean);
 
-            // Set canvas size
+            const hexToRgb = (hex) => {
+                const normalized = hex.replace('#', '').trim();
+                if (normalized.length === 3) {
+                    const r = parseInt(normalized[0] + normalized[0], 16);
+                    const g = parseInt(normalized[1] + normalized[1], 16);
+                    const b = parseInt(normalized[2] + normalized[2], 16);
+                    return { r, g, b };
+                }
+                if (normalized.length === 6) {
+                    const r = parseInt(normalized.slice(0, 2), 16);
+                    const g = parseInt(normalized.slice(2, 4), 16);
+                    const b = parseInt(normalized.slice(4, 6), 16);
+                    return { r, g, b };
+                }
+                return null;
+            };
+
+            const themeColors = themeHexColors.map(hexToRgb).filter(Boolean);
+            if (!themeColors.length) {
+                themeColors.push({ r: 255, g: 0, b: 67 }, { r: 255, g: 51, b: 105 });
+            }
+
+            const blocks = [];
+            const dots = [];
+            const settings = {
+                count: 70,
+                minSpeed: 0.08,
+                maxSpeed: 0.25,
+                minSize: 1.2,
+                maxSize: 2.6,
+                sway: 12,
+                alpha: 0.18,
+            };
+
+            const randomBetween = (min, max) => min + Math.random() * (max - min);
+
             function resizeCanvas() {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
+                initDots();
             }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
 
-            // Particle class
-            class Particle {
-                constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    this.size = Math.random() * 4 + 2;
-                    this.speedX = (Math.random() - 0.5) * 2;
-                    this.speedY = (Math.random() - 0.5) * 2;
-                    this.life = 1;
-                    this.decay = Math.random() * 0.02 + 0.01;
-                    this.hue = Math.floor(Math.random() * 60) + 220; // Blue-purple
-                }
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    this.life -= this.decay;
-                    this.size *= 0.97;
-                }
-
-                draw() {
-                    if (this.life <= 0) return;
-
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `hsla(${this.hue}, 100%, 60%, ${this.life})`;
-                    ctx.shadowColor = `hsla(${this.hue}, 100%, 50%, ${this.life})`;
-                    ctx.shadowBlur = 15;
-                    ctx.fill();
-                    ctx.shadowBlur = 0;
+            function initDots() {
+                dots.length = 0;
+                const count = Math.min(settings.count, Math.floor((canvas.width * canvas.height) / 18000));
+                for (let i = 0; i < count; i++) {
+                    dots.push(new SoftDot());
                 }
             }
 
-            // Track mouse movement
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                isMouseMoving = true;
-
-                // Create particles on move
-                for (let i = 0; i < 3; i++) {
-                    particles.push(new Particle(mouseX, mouseY));
+            class SoftDot {
+                constructor() {
+                    this.reset(true);
                 }
 
-                // Limit particles for performance
-                while (particles.length > 150) {
-                    particles.shift();
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.baseX = this.x;
+                    this.speed = randomBetween(settings.minSpeed, settings.maxSpeed);
+                    this.size = randomBetween(settings.minSize, settings.maxSize);
+                    this.phase = Math.random() * Math.PI * 2;
+                    this.color = themeColors[Math.floor(Math.random() * themeColors.length)];
                 }
-            });
 
-            // Animation loop
-            function animate() {
-                // Clear canvas completely (transparent)
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                update(time) {
+                    this.y += this.speed;
+                    this.x = this.baseX + Math.sin(time * 0.001 + this.phase) * settings.sway;
 
-                // Update and draw particles
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.update();
-                    p.draw();
-
-                    // Remove dead particles
-                    if (p.life <= 0 || p.size < 0.5) {
-                        particles.splice(i, 1);
+                    if (this.y - this.size > canvas.height + 10) {
+                        this.y = -Math.random() * canvas.height * 0.2;
+                        this.baseX = Math.random() * canvas.width;
+                        this.phase = Math.random() * Math.PI * 2;
+                        this.speed = randomBetween(settings.minSpeed, settings.maxSpeed);
+                        this.size = randomBetween(settings.minSize, settings.maxSize);
+                        this.color = themeColors[Math.floor(Math.random() * themeColors.length)];
                     }
                 }
 
+                draw() {
+                    ctx.beginPath();
+                    ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${settings.alpha})`;
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            function animate(time) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                dots.forEach((dot) => {
+                    dot.update(time);
+                    dot.draw();
+                });
                 requestAnimationFrame(animate);
             }
 
-            // Start animation
-            animate();
-            console.log('Cursor trail animation initialized');
+            requestAnimationFrame(animate);
+            console.log('Soft dot drift animation initialized');
         })();
     </script>
 
@@ -1393,6 +1431,8 @@
         "areaServed": "Worldwide"
     }
     </script>
+
+    </div>
 
 </body>
 
