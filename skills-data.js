@@ -47,11 +47,11 @@ const skillsData = {
 };
 
 const skillCategories = [
-    { id: "frontend", name: "Frontend", icon: "fas fa-laptop-code", color: "#6366f1" },
-    { id: "backend", name: "Backend", icon: "fas fa-server", color: "#8b5cf6" },
-    { id: "mobile", name: "Mobile", icon: "fas fa-mobile-alt", color: "#ec4899" },
-    { id: "tools", name: "Tools & DevOps", icon: "fas fa-tools", color: "#06b6d4" },
-    { id: "other", name: "Other Skills", icon: "fas fa-star", color: "#f59e0b" }
+    { id: "frontend", name: "Frontend", icon: "fas fa-laptop-code", color: "#00D4FF" },
+    { id: "backend", name: "Backend", icon: "fas fa-server", color: "#0A2540" },
+    { id: "mobile", name: "Mobile", icon: "fas fa-mobile-alt", color: "#6FE7FF" },
+    { id: "tools", name: "Tools & DevOps", icon: "fas fa-tools", color: "#0099B8" },
+    { id: "other", name: "Other Skills", icon: "fas fa-star", color: "#1B3A5C" }
 ];
 
 // Export for use in other scripts

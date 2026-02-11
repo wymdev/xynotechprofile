@@ -126,9 +126,11 @@ frontend: [
 Modify CSS custom properties in `style.css`:
 ```css
 :root {
-    --primary: #6366f1;
-    --purple: #8b5cf6;
-    --pink: #ec4899;
+    --primary: #0A2540;
+    --purple: #00D4FF;
+    --pink: #6FE7FF;
+    --dark-900: #F6F9FC;
+    --text: #697386;
     /* ... */
 }
 ```
