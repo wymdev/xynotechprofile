@@ -5,6 +5,15 @@ on:
     branches:
       - main
 
+# Least privilege: the job only needs to read the repo.
+permissions:
+  contents: read
+
+# Never run two deploys at once.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -20,10 +29,13 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --no-fund
+
+      - name: Fail on known high/critical vulnerabilities
+        run: npm audit --audit-level=high
 
       - name: Build static site
-        run: npm run build # next.config.mjs uses output: "export" -> ./out
+        run: npm run build # static export -> ./out (+ CSP hashes and .htaccess)
 
       - name: Setup SSH Key
         run: |
@@ -33,7 +45,8 @@ jobs:
           ssh-keyscan -H ${{ secrets.CPANEL_HOST }} >> ~/.ssh/known_hosts
 
       - name: Test SSH Connection
-        run: ssh -o StrictHostKeyChecking=no ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} "echo 'SSH Connection Successful'"
+        # Host key comes from known_hosts above; don't disable host-key checking.
+        run: ssh ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }} "echo 'SSH Connection Successful'"
 
       - name: Deploy build to cPanel
         run: |

@@ -5,6 +5,9 @@ import { createPortal } from "react-dom";
 import { categories, categoryName, projects, type Project } from "../lib/data";
 import { projectArt } from "../lib/projectArt";
 
+/** Only allow absolute http(s) links from project data (blocks javascript:, data:, etc.). */
+const safeUrl = (u?: string) => (u && /^https?:\/\//i.test(u) ? u : undefined);
+
 function Art({ p }: { p: Project }) {
   // eslint-disable-next-line @next/next/no-img-element
   if (p.image) return <img src={p.image} alt={p.title} loading="lazy" />;
@@ -137,13 +140,13 @@ export default function Projects() {
                 ))}
               </ul>
               <div className="modal-actions">
-                {open.demoUrl && (
-                  <a className="btn btn-primary" href={open.demoUrl} target="_blank" rel="noopener">
+                {safeUrl(open.demoUrl) && (
+                  <a className="btn btn-primary" href={safeUrl(open.demoUrl)} target="_blank" rel="noopener noreferrer">
                     <i className="fas fa-arrow-up-right-from-square" /> Live demo
                   </a>
                 )}
-                {open.githubUrl && (
-                  <a className="btn btn-ghost" href={open.githubUrl} target="_blank" rel="noopener">
+                {safeUrl(open.githubUrl) && (
+                  <a className="btn btn-ghost" href={safeUrl(open.githubUrl)} target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-github" /> View code
                   </a>
                 )}

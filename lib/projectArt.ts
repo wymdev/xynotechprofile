@@ -104,11 +104,14 @@ function security(r: () => number, _a: string, _b: string, id: string) {
 
 const DRAW = { web, mobile, ai, data, security };
 
+/** Escape text for use inside an SVG/HTML attribute. */
+const attr = (v: string) => v.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+
 export function projectArt(p: Project): string {
   const [a, b] = PALETTE[p.category] ?? PALETTE.web;
-  const id = `pa${p.id}`;
+  const id = `pa${Number(p.id) | 0}`;
   const r = rng(p.id);
-  return `<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${p.title} illustration">
+  return `<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${attr(p.title)} illustration">
   <defs>
     <linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>
     <linearGradient id="${id}a" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="${b}"/></linearGradient>
@@ -120,6 +123,6 @@ export function projectArt(p: Project): string {
   <rect width="800" height="550" fill="url(#${id}g)" opacity=".92"/>
   <rect width="800" height="550" fill="url(#${id}p)"/>
   <rect width="800" height="550" fill="url(#${id}s)"/>
-  ${DRAW[p.category](r, a, b, id)}
+  ${(DRAW[p.category] ?? web)(r, a, b, id)}
 </svg>`;
 }

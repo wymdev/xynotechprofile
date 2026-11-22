@@ -20,19 +20,46 @@ npm run dev        # http://localhost:3000
 ## Build
 
 ```bash
-npm run build      # static export → ./out
+npm run build      # static export → ./out, plus CSP hashes and .htaccess
 ```
 
 `next.config.mjs` sets `output: "export"`, so `./out` is plain HTML/CSS/JS. Any static host can serve it.
 
 ## Deploy
 
+### Coolify (Docker)
+
+1. Create a new resource from this Git repository.
+2. Set **Build Pack** to **Dockerfile** and **Ports Exposes** to **80**.
+3. Deploy. The image builds the static site with Node 22 and serves it from a hardened nginx (`deploy/nginx/`).
+
+Don't use the Nixpacks build pack. It would try `next start`, which doesn't work with a static export.
+
+### cPanel (GitHub Actions)
+
 Pushing to `main` runs `.github/workflows/deploy.yml`, which:
 
-1. runs `npm ci && npm run build`
-2. rsyncs `./out/` to `public_html/` on cPanel
+1. runs `npm ci`, `npm audit --audit-level=high` and `npm run build`
+2. rsyncs `./out/` to `public_html/`
 
-It uses the existing `SSH_PRIVATE_KEY`, `CPANEL_HOST` and `CPANEL_USER` secrets.
+It uses the `SSH_PRIVATE_KEY`, `CPANEL_HOST` and `CPANEL_USER` secrets. If you move fully to Coolify, delete this workflow so the two deploys don't both run.
+
+## Security
+
+`npm run build` runs `scripts/postbuild-security.mjs` after the Next.js build. It hashes every inline script and generates a strict **Content-Security-Policy** with no `unsafe-inline` for scripts. The policy goes to `build-security/csp.conf` for nginx and to `out/.htaccess` for Apache/cPanel.
+
+| Threat | Protection |
+| --- | --- |
+| XSS | Strict CSP with script hashes; no `innerHTML` with data; escaped JSON-LD and SVG attributes; project links limited to `http(s)` |
+| Clickjacking | `X-Frame-Options: DENY`, `frame-ancestors 'none'` |
+| Directory listing / file exposure | `autoindex off` / `Options -Indexes`; hidden files (`.git`, `.env`, `.htaccess`) never served; no source maps |
+| Tampered CDN file | Subresource Integrity hash on Font Awesome |
+| DoS / floods (nginx) | Per-IP rate limit (15 r/s, burst 60) and connection cap, short timeouts against slow clients, 1 KB max body, only `GET`/`HEAD` |
+| Scraping / AI crawlers | `robots.txt` opt-out, `noai` meta tag and header, server-side user-agent blocking, email and phone assembled in the browser (not in the HTML) |
+| Other headers | HSTS, `nosniff`, Referrer-Policy, Permissions-Policy, COOP/CORP, hidden server version |
+| Dependencies | `npm audit` is clean; the deploy fails on high/critical advisories |
+
+**Large DDoS attacks:** rate limiting on the server only stops floods from a few IP addresses. To absorb large, distributed attacks, put the domain behind **Cloudflare** (the free plan is enough). If you do, trust Cloudflare's IP ranges and `CF-Connecting-IP` in `deploy/nginx/default.conf`.
 
 ## Editing content
 

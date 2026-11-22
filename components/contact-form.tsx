@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { getEmail } from "./protected-contact";
 
-const EMAIL = "support@xynotechmm.com";
+
 const INTERESTS = ["Web platform", "Mobile app", "Data & BI", "AI", "Consulting"];
 
 /**
@@ -29,8 +30,9 @@ export default function ContactForm() {
     const header = [`Name: ${get("name")}`, `Email: ${get("email")}`];
     if (interests) header.push(`Interested in: ${interests}`);
     const bodyText = `${header.join("\n")}\n\n${get("message")}`;
+    const EMAIL = getEmail();
     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(get("subject"))}&body=${encodeURIComponent(bodyText)}`;
-    setStatus({ kind: "ok", text: `Your email app should open with the message ready — just hit send. If nothing opens, write to ${EMAIL}.` });
+    setStatus({ kind: "ok", text: `Your email app should open with the message ready — just hit send. If nothing opens, email us at ${EMAIL}.` });
   };
 
   const cls = (k: string) => `field${invalid.includes(k) ? " invalid" : ""}`;

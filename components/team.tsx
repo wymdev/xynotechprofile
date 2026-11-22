@@ -53,7 +53,7 @@ export default function Team() {
                   </ul>
                   <div className="team-social">
                     {m.links.map((l) => (
-                      <a key={l.href} href={l.href} target="_blank" rel="noopener" aria-label={`${m.name} on ${l.label}`} tabIndex={isFlipped ? 0 : -1}>
+                      <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" aria-label={`${m.name} on ${l.label}`} tabIndex={isFlipped ? 0 : -1}>
                         <i className={l.icon} />
                       </a>
                     ))}
