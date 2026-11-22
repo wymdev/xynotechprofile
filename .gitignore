@@ -55,3 +55,4 @@ coverage/
 # Next.js static export
 out/
 *.tsbuildinfo
+build-security/

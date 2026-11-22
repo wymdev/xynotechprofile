@@ -8,6 +8,7 @@ import { Orbit, SkillTabs } from "../components/skills";
 import Team from "../components/team";
 import CodeTyper from "../components/code-typer";
 import ContactForm from "../components/contact-form";
+import ProtectedContact from "../components/protected-contact";
 import { team } from "../lib/data";
 
 const d = (n: number) => ({ ["--d" as string]: n }) as CSSProperties;
@@ -497,22 +498,8 @@ export default function Home() {
                   </h2>
                   <p className="section-lede">Ready to turn your idea into reality? Tell us about it and get a free consultation.</p>
                   <div className="contact-cards">
-                    <a className="contact-card" href="mailto:support@xynotechmm.com">
-                      <span className="contact-icon">
-                        <i className="fas fa-envelope" />
-                      </span>
-                      <span>
-                        <small>Email us</small>support@xynotechmm.com
-                      </span>
-                    </a>
-                    <a className="contact-card" href="tel:+959454375116">
-                      <span className="contact-icon">
-                        <i className="fas fa-phone" />
-                      </span>
-                      <span>
-                        <small>Call us</small>+95 9 4543 7511 6
-                      </span>
-                    </a>
+                    <ProtectedContact kind="email" variant="card" label="Email us" />
+                    <ProtectedContact kind="phone" variant="card" label="Call us" />
                     <div className="contact-card">
                       <span className="contact-icon">
                         <i className="fas fa-clock" />
@@ -523,12 +510,10 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="socials">
-                    <a href="https://linkedin.com/company/xynotech-mm" target="_blank" rel="noopener" aria-label="XynoTech on LinkedIn">
+                    <a href="https://linkedin.com/company/xynotech-mm" target="_blank" rel="noopener noreferrer" aria-label="XynoTech on LinkedIn">
                       <i className="fab fa-linkedin-in" />
                     </a>
-                    <a href="mailto:support@xynotechmm.com" aria-label="Email XynoTech">
-                      <i className="fas fa-at" />
-                    </a>
+                    <ProtectedContact kind="email" variant="icon" />
                   </div>
                 </div>
                 <ContactForm />
@@ -570,9 +555,9 @@ export default function Home() {
             </div>
             <div>
               <h4>Contact</h4>
-              <a href="mailto:support@xynotechmm.com">support@xynotechmm.com</a>
-              <a href="tel:+959454375116">+95 9 4543 7511 6</a>
-              <a href="https://linkedin.com/company/xynotech-mm" target="_blank" rel="noopener">
+              <ProtectedContact kind="email" />
+              <ProtectedContact kind="phone" />
+              <a href="https://linkedin.com/company/xynotech-mm" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </div>

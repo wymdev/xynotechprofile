@@ -29,7 +29,15 @@ export default function GravityStage() {
       const d = gravityChips[i % gravityChips.length];
       const el = document.createElement("div");
       el.className = `g-chip ${d.color}${d.orb ? " orb" : ""}`;
-      el.innerHTML = `<i class="${d.icon}"></i>${d.label ? `<span>${d.label}</span>` : ""}`;
+      // Built with DOM APIs (no innerHTML) so chip data can never inject markup.
+      const icon = document.createElement("i");
+      icon.className = d.icon;
+      el.appendChild(icon);
+      if (d.label) {
+        const label = document.createElement("span");
+        label.textContent = d.label;
+        el.appendChild(label);
+      }
       return el;
     };
 
@@ -37,7 +45,7 @@ export default function GravityStage() {
       setStatic(true);
       for (let i = 0; i < 14; i++) stage.appendChild(makeChipEl(i));
       return () => {
-        stage.innerHTML = "";
+        stage.replaceChildren();
       };
     }
 
@@ -329,7 +337,7 @@ export default function GravityStage() {
           window.removeEventListener("xyno:ready", kickoff);
           Composite.clear(world, false);
           Engine.clear(engine);
-          stage.innerHTML = "";
+          stage.replaceChildren();
         };
       })
       .catch(() => {

@@ -3,7 +3,7 @@
 import { useEffect, useState, type RefObject } from "react";
 
 /** True while the element is (near) the viewport — used to pause WebGL render loops off-screen. */
-export function useInView(ref: RefObject<Element>, rootMargin = "100px") {
+export function useInView(ref: RefObject<Element | null>, rootMargin = "100px") {
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;

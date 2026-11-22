@@ -27,6 +27,8 @@ export const metadata: Metadata = {
     "XynoTech",
   ],
   alternates: { canonical: "/" },
+  // Search engines may index; AI crawlers are asked not to train on the content.
+  robots: "index, follow, noai, noimageai, max-image-preview:large",
   openGraph: {
     type: "website",
     url: "https://xynotechmm.com",
@@ -45,8 +47,6 @@ const jsonLd = {
   url: "https://xynotechmm.com",
   logo: "https://xynotechmm.com/icon.svg",
   description: "Custom software, web platforms, mobile apps, data analytics, AI, cloud and cybersecurity.",
-  email: "support@xynotechmm.com",
-  telephone: "+959454375116",
   address: { "@type": "PostalAddress", addressLocality: "Yangon", addressCountry: "MM" },
   sameAs: ["https://linkedin.com/company/xynotech-mm"],
   foundingDate: "2015",
@@ -54,13 +54,22 @@ const jsonLd = {
   areaServed: "Worldwide",
 };
 
+/** JSON for an inline <script>: escape "<" so a value can never close the tag (e.g. "</script>"). */
+const safeJson = (v: unknown) => JSON.stringify(v).replace(/</g, "\\u003c");
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
         {/* eslint-disable-next-line @next/next/no-css-tags */}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(jsonLd) }} />
       </head>
       <body className="is-loading">{children}</body>
     </html>
