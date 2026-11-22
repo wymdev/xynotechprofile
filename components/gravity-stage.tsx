@@ -114,20 +114,61 @@ export default function GravityStage() {
         };
 
         // ---- dragging (mouse/pen) and tap-to-bounce (touch) ----
+        // One drag at a time, tracked on window so a release anywhere (outside the chip,
+        // outside the window, lost capture, tab switch) always lets go. Previously a missed
+        // pointerup left the constraint in the world and the chip hung in mid-air.
         let drag: MatterNS.Constraint | null = null;
+        let dragEl: HTMLElement | null = null;
+        let downAt = { x: 0, y: 0, t: 0, body: null as MatterNS.Body | null };
         const local = (e: PointerEvent) => {
           const r = stage.getBoundingClientRect();
           return { x: e.clientX - r.left, y: e.clientY - r.top };
         };
+        const bounce = (body: MatterNS.Body) => {
+          Body.setVelocity(body, { x: (Math.random() - 0.5) * 14, y: -14 - Math.random() * 8 });
+          Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.5);
+        };
+        const endDrag = () => {
+          if (drag) Composite.remove(world, drag);
+          drag = null;
+          dragEl?.classList.remove("dragging");
+          dragEl = null;
+          document.body.classList.remove("g-dragging");
+        };
+        const onWinMove = (e: PointerEvent) => {
+          if (drag) drag.pointA = local(e);
+        };
+        const onWinUp = (e: PointerEvent) => {
+          const wasTap =
+            e.type === "pointerup" &&
+            downAt.body &&
+            Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) < 8 &&
+            performance.now() - downAt.t < 350;
+          if (wasTap) bounce(downAt.body!);
+          downAt.body = null;
+          endDrag();
+        };
+        const onBlur = () => {
+          downAt.body = null;
+          endDrag();
+        };
+        // Block text selection while a chip is held.
+        const onSelectStart = (e: Event) => drag && e.preventDefault();
+        window.addEventListener("pointermove", onWinMove);
+        window.addEventListener("pointerup", onWinUp);
+        window.addEventListener("pointercancel", onWinUp);
+        window.addEventListener("blur", onBlur);
+        document.addEventListener("selectstart", onSelectStart);
+
         const bindPointer = ({ el, body }: Chip) => {
           if (matchMedia("(hover: none)").matches) el.style.touchAction = "pan-y";
-          let downAt = { x: 0, y: 0, t: 0 };
           el.addEventListener("pointerdown", (e) => {
-            downAt = { x: e.clientX, y: e.clientY, t: performance.now() };
-            if (e.pointerType === "touch") return;
+            if (e.button > 0) return;
+            downAt = { x: e.clientX, y: e.clientY, t: performance.now(), body };
+            if (e.pointerType === "touch") return; // touch: tap to bounce, page keeps scrolling
             e.preventDefault();
-            el.setPointerCapture(e.pointerId);
-            el.classList.add("dragging");
+            endDrag(); // never leave an older constraint behind
+            window.getSelection()?.removeAllRanges();
             const p = local(e);
             drag = Constraint.create({
               pointA: p,
@@ -138,24 +179,11 @@ export default function GravityStage() {
               length: 0,
             });
             Composite.add(world, drag);
+            dragEl = el;
+            el.classList.add("dragging");
+            document.body.classList.add("g-dragging");
           });
-          el.addEventListener("pointermove", (e) => {
-            if (drag && drag.bodyB === body) drag.pointA = local(e);
-          });
-          const release = (e: PointerEvent) => {
-            el.classList.remove("dragging");
-            if (drag && drag.bodyB === body) {
-              Composite.remove(world, drag);
-              drag = null;
-            }
-            const moved = Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y);
-            if (e.type === "pointerup" && moved < 8 && performance.now() - downAt.t < 350) {
-              Body.setVelocity(body, { x: (Math.random() - 0.5) * 14, y: -14 - Math.random() * 8 });
-              Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.5);
-            }
-          };
-          el.addEventListener("pointerup", release);
-          el.addEventListener("pointercancel", release);
+          el.addEventListener("dragstart", (e) => e.preventDefault());
         };
 
         // ---- cursor "wind": fast mouse movement pushes nearby chips ----
@@ -201,6 +229,16 @@ export default function GravityStage() {
           }
           Engine.update(engine, dt);
           for (const { el, body } of chips) {
+            // Safety nets: cap speed so hard throws can't tunnel through walls,
+            // and drop anything that escaped the stage back in from the top.
+            const v = body.velocity;
+            const sp = Math.hypot(v.x, v.y);
+            if (sp > 38) Body.setVelocity(body, { x: (v.x / sp) * 38, y: (v.y / sp) * 38 });
+            const out = body.position.y > H + 150 || body.position.x < -150 || body.position.x > W + 150 || body.position.y < -H * 1.4;
+            if (out && drag?.bodyB !== body) {
+              Body.setPosition(body, { x: 60 + Math.random() * (W - 120), y: -80 });
+              Body.setVelocity(body, { x: 0, y: 0 });
+            }
             const { x, y } = body.position;
             el.style.transform = `translate3d(${x - el.offsetWidth / 2}px, ${y - el.offsetHeight / 2}px, 0) rotate(${body.angle}rad)`;
           }
@@ -281,6 +319,12 @@ export default function GravityStage() {
           stop();
           io.disconnect();
           hero.removeEventListener("pointermove", onMove);
+          window.removeEventListener("pointermove", onWinMove);
+          window.removeEventListener("pointerup", onWinUp);
+          window.removeEventListener("pointercancel", onWinUp);
+          window.removeEventListener("blur", onBlur);
+          document.removeEventListener("selectstart", onSelectStart);
+          endDrag();
           window.removeEventListener("resize", onResize);
           window.removeEventListener("xyno:ready", kickoff);
           Composite.clear(world, false);
