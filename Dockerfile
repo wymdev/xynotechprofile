@@ -1,5 +1,5 @@
 # XynoTech site — static Next.js export served by a hardened nginx.
-# Coolify: Build Pack = Dockerfile, Ports Exposes = 80.
+# Coolify: Build Pack = Dockerfile, Ports Exposes = 80 (3000 also works).
 
 # ---- build ----
 FROM node:22-alpine AS build
@@ -20,5 +20,5 @@ COPY --from=build /app/build-security/csp.conf /etc/nginx/snippets/csp.conf
 COPY --from=build /app/out /usr/share/nginx/html
 # .htaccess is only for Apache/cPanel; nginx denies dotfiles anyway.
 RUN rm -f /usr/share/nginx/html/.htaccess && nginx -t
-EXPOSE 80
+EXPOSE 80 3000
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 CMD wget -qO /dev/null http://127.0.0.1/ || exit 1
