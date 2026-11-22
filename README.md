@@ -69,7 +69,10 @@ It uses the `SSH_PRIVATE_KEY`, `CPANEL_HOST` and `CPANEL_USER` secrets. If you m
 | Page sections & copy | `app/page.tsx` |
 | Styles (tokens at the top) | `app/globals.css` |
 | Project cover art | `lib/projectArt.ts` (used when a project has no `image`) |
-| Root files (`robots.txt`, `sitemap.xml`, `app-ads.txt`), team photos | `public/` |
+| Site address (share previews, canonical URL, sitemap, robots.txt) | `lib/site.ts`, or set `NEXT_PUBLIC_SITE_URL` at build time |
+| Link-preview image (1200×630) | `public/og.jpg` |
+| `robots.txt` / `sitemap.xml` | `app/robots.ts`, `app/sitemap.ts` |
+| Other root files (`app-ads.txt`, `security.txt`), team photos | `public/` |
 
 To use a real screenshot for a project, put it in `public/` and set `image: "/your-file.jpg"`. Leave `demoUrl` and `githubUrl` empty to hide those buttons.
 

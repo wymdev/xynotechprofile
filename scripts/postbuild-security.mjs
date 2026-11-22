@@ -102,6 +102,10 @@ ErrorDocument 403 /404.html
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
   Header always set Cross-Origin-Resource-Policy "same-origin"
+  # Share image and icon may be embedded by other sites (link previews)
+  <FilesMatch "^(og\\.jpg|icon\\.svg)$">
+    Header always set Cross-Origin-Resource-Policy "cross-origin"
+  </FilesMatch>
   Header always set Strict-Transport-Security "max-age=31536000"
   Header always set X-Robots-Tag "noai, noimageai"
   Header always unset X-Powered-By
